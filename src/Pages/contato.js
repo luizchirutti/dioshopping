@@ -11,11 +11,11 @@ const Contatos = () => {
     const [render, setRender] = useState(false);
     const [success, setSuccess] = useState(false);
 
-    useEffect(async () => {
-        const response = await fetch(url)
-        const data = await response.json();
-        setMessage(data);
-    }, [render])
+    useEffect(() => {
+         fetch(`$url`).then(async (response) =>{
+             setMessage(await response.json());
+         });
+    }, [render]);
 
     const sendMessage = () => {
         setValidator(false);
